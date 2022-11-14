@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Primak\QuoteDate\Api\ManagementInterface"
+                type="Primak\QuoteDate\Model\Management"/>
+    <type name="Magento\Sales\Api\OrderManagementInterface">
+        <plugin name="place_order_time"
+                type="Primak\QuoteDate\Plugin\OrderManagementPlugin"/>
+    </type>
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="place_order_time_get"
+                type="Primak\QuoteDate\Plugin\OrderRepositoryPlugin"/>
+    </type>
+    <type name="Magento\Checkout\Model\Cart\CartInterface">
+        <plugin name="create_quote_new"
+                type="Primak\QuoteDate\Plugin\AddProductPlugin"/>
+    </type>
+    <type name="Magento\Quote\Api\CartRepositoryInterface">
+        <plugin name="place_order_time_get_quote"
+                type="Primak\QuoteDate\Plugin\CartRepositoryPlugin"/>
+    </type>
+</config>

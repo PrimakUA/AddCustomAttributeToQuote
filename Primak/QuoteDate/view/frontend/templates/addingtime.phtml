@@ -1,0 +1,10 @@
+<?php
+/** @var $viewModelQuoteDate Primak\QuoteDate\ViewModel\QuoteAttribute */
+$viewModelQuoteDate = $block->getData('viewModelQuoteDate');
+if (isset($viewModelQuoteDate))
+{
+    if ($viewModelQuoteDate->getQuoteAttribute())
+    {
+        echo 'First item add time is - ' . $viewModelQuoteDate->getQuoteAttribute();
+    }
+}
